@@ -140,5 +140,11 @@
               jal More
               
             upperCase:
+              addi $s3, $s3, -55
+              jal More
+              
+            number:
+              addi $s3, $s3, -48
+              jal More
             
     
