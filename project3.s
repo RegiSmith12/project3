@@ -66,3 +66,9 @@
             beq $t0, 32, conversionfunc
             beq $t1, 5, stringTooLong
             j inputLength
+            
+  conversionfunc:
+    sub $t2, $t2, $t1 #move pointer to start of string
+    addi $sp, $sp, -4 #allocate memory for stack
+    sw $ra, 0($sp) #return address
+    move $a0, $t2
