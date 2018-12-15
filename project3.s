@@ -101,6 +101,13 @@
            syscall
            
       stringEmpty:
-            la $a0, emptyInput #load message
+            la $a0, emptyString #load message
             li $v0, 4 #print message
+            syscall
+
+            li $v0, 10 #end of program
+            syscall
+            
+      stringInvalid:
+            la $a0, invalidString #load message
     
