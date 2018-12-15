@@ -90,4 +90,10 @@
         li $v0, 1 #print number
         syscall
         li $v0, 10 #end program
+        syscall
+        
+      stringTooLong:
+           la $a0, longString #load message
+           li $v0, 4 #print message
+           syscall
     
