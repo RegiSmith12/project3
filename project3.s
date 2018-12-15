@@ -72,3 +72,9 @@
     addi $sp, $sp, -4 #allocate memory for stack
     sw $ra, 0($sp) #return address
     move $a0, $t2
+    li $a1, 3 #string length  
+    li $a2, 1 #exponential base
+    jal BaseTen #function call
+
+    #print result
+    move $a0, $v0
