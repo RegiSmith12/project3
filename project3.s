@@ -133,4 +133,12 @@
               blt $s3, 90, upperCase
               blt $s3, 97, stringInvalid
               blt $s3, 122, lowerCase
+              blt $s3, 128, isInvalid
+              
+            lowerCase:
+              addi $s3, $s3, -87
+              jal More
+              
+            upperCase:
+            
     
