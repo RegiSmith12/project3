@@ -9,8 +9,14 @@
         la $a0, userInput #store the address of string
         li $a1, 500 #create enough space for string input
         syscall
-        add $t0, $0, 0 #initialize $t0 register
-        add $t1, $0, 0 #initialize $t1 register
+        add $t0, $0, 0 #initialize the $t0 register
+        add $t1, $0, 0 #initialize the $t1 register
 
-        la $t2, userInput #load string addr into $t2 register
+        la $t2, userInput #put string addr into $t2 register
         lb $t0, 0($t2)
+        beq $t0, 10, stringEmpty #check if string is enpty
+        beq $t0, 0 stringEmpty
+
+        addi $s0, $0, 35 #store number
+        addi $t3, $0, 1 #iniialize new registers
+        addi $t4, $0, 0
