@@ -96,4 +96,11 @@
            la $a0, longString #load message
            li $v0, 4 #print message
            syscall
+           
+           li $v0, 10 #end of program
+           syscall
+           
+      stringEmpty:
+            la $a0, emptyInput #load message
+            li $v0, 4 #print message
     
