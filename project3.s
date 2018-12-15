@@ -20,3 +20,9 @@
         addi $s0, $0, 35 #store number
         addi $t3, $0, 1 #iniialize new registers
         addi $t4, $0, 0
+        addi $t5, $0, 0
+
+        ignoreHoles:
+            lb $t0, 0($t2) #put address in $t2 into $t0
+            addi $t2, $t2, 1 #increment pointer
+            addi $t1, $t1, 1 #increment counter
