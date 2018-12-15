@@ -78,3 +78,10 @@
 
     #print result
     move $a0, $v0
+    li $v0, 1
+    syscall
+    
+    lw $ra, 0($sp) 
+    addi $sp, $sp, 4 #deallocate memory
+    jr $ra
+    
