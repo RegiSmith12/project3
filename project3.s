@@ -85,3 +85,9 @@
     addi $sp, $sp, 4 #deallocate memory
     jr $ra
     
+      end:
+        move $a0, $t5 #move number to $a0
+        li $v0, 1 #print number
+        syscall
+        li $v0, 10 #end program
+    
