@@ -30,10 +30,16 @@
             beq $t0, 10, isEmpty #if equal jump to stringEmpty branch 
             beq $t0, $0, isEmpty #if equal jump to stringEmpty branch 
 
-        viewChars:
+        lookCharacters:
             lb $t0, 0($t2)
             addi $t2, $t2, 1
             addi $t1, $t1, 1
             beq $t0, 10, restart
             beq $t0, 0, restart
-            bne $t0, 32, viewChars
+            bne $t0, 32, lookCharacters
+            
+         lookRemaining:
+            lb $t0, 0($t2)
+            addi $t2, $t2, 1
+            addi $t1, $t1, 1
+            beq $t0, 10, restart
