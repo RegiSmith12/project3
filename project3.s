@@ -61,3 +61,8 @@
             lb $t0, ($t2)
             addi $t2, $t2, 1
             addi $t1, $t1, 1
+            beq $t0, 10, conversionfunc
+            beq $t0, 0, conversionfunc
+            beq $t0, 32, conversionfunc
+            beq $t1, 5, stringTooLong
+            j inputLength
