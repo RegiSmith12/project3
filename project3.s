@@ -117,4 +117,10 @@
             syscall
 
             jr $ra
+            
+      Base10:
+   	   addi $sp, $sp, -8 #allocate memory for stack
+   	   sw $ra, 0($sp) #store the return address
+    	   sw $s3, 4($sp) #store the s register
+    	   beq $a1, $0, return_zero #base case
     
