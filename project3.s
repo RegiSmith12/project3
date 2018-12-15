@@ -26,9 +26,9 @@
             lb $t0, 0($t2) #put address in $t2 into $t0
             addi $t2, $t2, 1 #increment pointer
             addi $t1, $t1, 1 #increment counter
-            beq $t0, 32, ignoreSpaces #if equal jump to ignoreHoles branch 
-            beq $t0, 10, isEmpty #if equal jump to stringEmpty branch 
-            beq $t0, $0, isEmpty #if equal jump to stringEmpty branch 
+            beq $t0, 32, ignoreHoles #if equal jump to ignoreHoles branch 
+            beq $t0, 10, stringEmpty #if equal jump to stringEmpty branch 
+            beq $t0, $0, stringEmpty #if equal jump to stringEmpty branch 
 
         lookCharacters:
             lb $t0, 0($t2)
@@ -157,7 +157,7 @@
             jal BaseTen
     #a0=str addr, a1=strlen, a2=exponential base
     
-    #jal DecimalVersion #call function again (loop)
+    #jal BaseTen #call function again (loop)
         add $v0, $s3, $v0   #return last byte and decimal version of the rest of number
         lw $ra, 0($sp)
         lw $s3, 4($sp)
