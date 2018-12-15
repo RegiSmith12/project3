@@ -123,4 +123,10 @@
    	   sw $ra, 0($sp) #store the return address
     	   sw $s3, 4($sp) #store the s register
     	   beq $a1, $0, return_zero #base case
+    	   addi $a1, $a1, -1 #length = -1 so it starts at the end of string
+           add $t0, $a0, $a1 #get address of the last byte 
+    	   lb $s3, 0($t0)  #load the byte
+    	   #asciiConversions:
+              blt $s3, 48, isInvalid #the input is invalid if character is before 0 in ascii table
+              
     
