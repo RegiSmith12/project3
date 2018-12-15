@@ -146,5 +146,10 @@
             number:
               addi $s3, $s3, -48
               jal More
+          #mul $s3, $s3, $a2 #multiply the byte x the exponential base (starts at 1(35^0 = 1))
+    	  #mul $a2, $a2, 35 #multiply the exponential base by 35 to get next power (35^1 ...)
+          More:
+            mul $s3, $s3, $a2 #multiply the byte x the exponential base (starts at 1(35^0 = 1))
+            mul $a2, $a2, 35 #multiply the exponential base by 35 to get next power (35^1 ...)
             
     
