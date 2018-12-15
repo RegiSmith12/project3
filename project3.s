@@ -127,6 +127,10 @@
            add $t0, $a0, $a1 #get address of the last byte 
     	   lb $s3, 0($t0)  #load the byte
     	   #asciiConversions:
-              blt $s3, 48, isInvalid #the input is invalid if character is before 0 in ascii table
-              
+              blt $s3, 48, stringInvalid #the string is invalid if character is before 0 in ascii table
+              blt $s3, 58, number
+              blt $s3, 65, stringInvalid
+              blt $s3, 90, upperCase
+              blt $s3, 97, stringInvalid
+              blt $s3, 122, lowerCase
     
