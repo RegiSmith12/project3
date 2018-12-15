@@ -126,6 +126,9 @@
     	   addi $a1, $a1, -1 #length = -1 so it starts at the end of string
            add $t0, $a0, $a1 #get address of the last byte 
     	   lb $s3, 0($t0)  #load the byte
+    	   
+    	   #Convert byte to digit
+    	   
     	   #asciiConversions:
               blt $s3, 48, stringInvalid #the string is invalid if character is before 0 in ascii table
               blt $s3, 58, number
@@ -151,5 +154,11 @@
           More:
             mul $s3, $s3, $a2 #multiply the byte x the exponential base (starts at 1(35^0 = 1))
             mul $a2, $a2, 35 #multiply the exponential base by 35 to get next power (35^1 ...)
+            jal BaseTen
+    #a0=str addr, a1=strlen, a2=exponential base
+    
+    #jal DecimalVersion #call function again (loop)
+        add $v0, $s3, $v0   #returning last byte plus decimal version of the rest of number
+        lw $ra, 0($sp)
             
     
