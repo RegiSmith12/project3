@@ -32,3 +32,8 @@
 
         viewChars:
             lb $t0, 0($t2)
+            addi $t2, $t2, 1
+            addi $t1, $t1, 1
+            beq $t0, 10, restart
+            beq $t0, 0, restart
+            bne $t0, 32, viewChars
