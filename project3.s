@@ -160,5 +160,10 @@
     #jal DecimalVersion #call function again (loop)
         add $v0, $s3, $v0   #returning last byte plus decimal version of the rest of number
         lw $ra, 0($sp)
+        lw $s3, 4($sp)
+        addi $sp, $sp, 8
+        jr $ra
+   return_zero:
+     li $v0, 0
             
     
