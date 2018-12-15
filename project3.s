@@ -26,3 +26,9 @@
             lb $t0, 0($t2) #put address in $t2 into $t0
             addi $t2, $t2, 1 #increment pointer
             addi $t1, $t1, 1 #increment counter
+            beq $t0, 32, ignoreSpaces #jump to ignoreHoles branch if equal
+            beq $t0, 10, isEmpty #if equal jump to stringEmpty branch 
+            beq $t0, $0, isEmpty #if equal jump to stringEmpty branch 
+
+        viewChars:
+            lb $t0, 0($t2)
