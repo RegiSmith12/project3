@@ -26,7 +26,7 @@
             lb $t0, 0($t2) #put address in $t2 into $t0
             addi $t2, $t2, 1 #increment pointer
             addi $t1, $t1, 1 #increment counter
-            beq $t0, 32, ignoreSpaces #jump to ignoreHoles branch if equal
+            beq $t0, 32, ignoreSpaces #if equal jump to ignoreHoles branch 
             beq $t0, 10, isEmpty #if equal jump to stringEmpty branch 
             beq $t0, $0, isEmpty #if equal jump to stringEmpty branch 
 
@@ -43,3 +43,9 @@
             addi $t2, $t2, 1
             addi $t1, $t1, 1
             beq $t0, 10, restart
+            beq $t0, 0, restart
+            bne $t0, 32, stringInvalid #if not equal jump to stringInvalid branch
+            j lookRemaining
+
+        restart:
+            sub $t2, $t2, $t1 #restart pointer
