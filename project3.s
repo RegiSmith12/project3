@@ -97,7 +97,7 @@
            li $v0, 4 #print message
            syscall
            
-           li $v0, 10 #end of program
+           li $v0, 10 #end program
            syscall
            
       stringEmpty:
@@ -105,9 +105,16 @@
             li $v0, 4 #print message
             syscall
 
-            li $v0, 10 #end of program
+            li $v0, 10 #end program
             syscall
             
       stringInvalid:
             la $a0, invalidString #load message
+             li $v0, 4 #prints message
+            syscall
+
+            li $v0, 10 #end program
+            syscall
+
+            jr $ra
     
