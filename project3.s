@@ -49,3 +49,9 @@
 
         restart:
             sub $t2, $t2, $t1 #restart pointer
+            la $t1, 0 #restart counter
+
+        continue:
+            lb $t0, 0($t2)
+            addi $t2, $t2, 1
+            beq $t0, 32, continue
